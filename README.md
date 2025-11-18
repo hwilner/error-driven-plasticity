@@ -78,7 +78,8 @@ and Adaptation in Neural Circuits. Nature Neuroscience. [DOI when published]
 MIT License - see LICENSE file for details
 
 ## Contact
-[Author contact information]
+Repository: https://github.com/hwilner/error-driven-plasticity-paper2
+Author: hwilner@institution.edu
 
 ## Reproducibility Statement
 All analysis code is provided to ensure full reproducibility of results reported in the manuscript. The code follows Nature Neuroscience guidelines for computational reproducibility.
