@@ -1,0 +1,42 @@
+# Error-Driven Plasticity Framework - Requirements
+# Compatible with Python 3.8+
+
+# Core scientific computing
+numpy>=1.21.0
+scipy>=1.7.0
+pandas>=1.3.0
+
+# Data analysis and statistics
+scikit-learn>=1.0.0
+statsmodels>=0.13.0
+pingouin>=0.5.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# Neuroscience-specific
+brian2>=2.5.0
+elephant>=0.11.0
+quantities>=0.13.0
+
+# Allen Institute tools
+allensdk>=2.13.0
+
+# Data handling
+h5py>=3.6.0
+tables>=3.7.0
+
+# Machine learning (for AI connections)
+torch>=1.12.0
+tensorflow>=2.8.0
+
+# Development and testing
+pytest>=7.0.0
+jupyter>=1.0.0
+ipython>=8.0.0
+
+# Documentation
+sphinx>=4.5.0
+nbsphinx>=0.8.0

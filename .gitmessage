@@ -1,0 +1,46 @@
+# Error-Driven Plasticity Framework - Commit Template
+
+# [Type]: Brief description (50 chars max)
+#
+# Types: 
+# - feat: New feature or analysis
+# - fix: Bug fix or correction
+# - docs: Documentation changes
+# - style: Code formatting (no logic changes)
+# - refactor: Code restructuring (no behavior change)  
+# - test: Adding or updating tests
+# - data: Parameter updates or data changes
+# - paper: Manuscript-related changes
+# - repro: Reproducibility improvements
+#
+# Examples:
+# feat: Add cross-scale correlation analysis
+# fix: Correct bootstrap sampling procedure  
+# docs: Update README with installation guide
+# data: Update Allen Observatory parameters
+# paper: Incorporate reviewer feedback on methods
+
+# Detailed description (wrap at 72 chars)
+# - What changed and why
+# - Scientific rationale for changes
+# - Impact on results or conclusions
+# - References to relevant literature
+
+# Breaking changes (if any):
+# - List any incompatible changes
+# - Migration instructions
+
+# Paper section affected (if applicable):
+# - Methods, Results, Discussion, etc.
+# - Specific figure or table changes
+
+# Related issues:
+# - Fixes #123
+# - Closes #456
+# - Related to #789
+
+# Scientific validation:
+# - [ ] Results remain statistically significant
+# - [ ] Biological parameters still realistic
+# - [ ] Code passes all tests
+# - [ ] Documentation updated
