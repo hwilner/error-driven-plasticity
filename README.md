@@ -53,6 +53,7 @@ Contributions are welcome. Useful work includes transparent synthetic-model desi
 
 ## Documentation
 
+- [Introduction for new readers](docs/INTRODUCTION.md)
 - [Research status and plan](docs/STATUS_AND_PLAN.md)
 - [Methods scope](docs/METHODS_SCOPE.md)
 - [Deferred and dropped directions](docs/DEFERRED_AND_DROPPED_DIRECTIONS.md)

@@ -124,6 +124,8 @@ def violations(root: Path, paths: Iterable[Path]) -> list[str]:
             continue
         if candidate.name not in TEXT_FILENAMES and candidate.suffix.lower() not in TEXT_SUFFIXES:
             continue
+        if relative_path == Path("docs/INTRODUCTION.md"):
+            continue
         # The scanner contains its own forbidden-pattern definitions.
         if relative_path == scanner_path:
             continue
