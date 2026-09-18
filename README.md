@@ -1,94 +1,59 @@
-# Error-Driven Plasticity Framework - Paper 2 Code Repository
+# Error-Driven Plasticity
 
-## Overview
-This repository contains the analysis code and data processing pipelines for the paper:
-**"Error-Driven Plasticity: A Unified Framework for Learning and Adaptation in Neural Circuits"**
+## Scope
 
-## Publication Status
-- **Target Journal**: Nature Neuroscience
-- **Status**: Ready for submission
-- **Data Approach**: Real experimental parameters from published studies
+This repository supports **independent research** through a small, data-free synthetic model and public-boundary checks. It is a conceptual software starting point only: it contains no empirical data, processed outputs, figures, downloaded material, or claims about observed outcomes.
 
-## Repository Structure
-```
-paper2_code_repository/
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── src/
-│   ├── allen_data_access.py          # Allen Observatory data analysis
-│   ├── enhanced_real_analysis.py     # Multi-scale error-plasticity analysis
-│   ├── figure_generation.py          # Publication figure creation
-│   └── statistical_validation.py     # Bootstrap and FDR analysis
-├── data/
-│   ├── parameters/                   # Experimental parameters from literature
-│   └── results/                      # Analysis outputs
-├── figures/
-│   ├── main_figures/                 # Main manuscript figures
-│   └── extended_data/                # Extended Data figures
-└── docs/
-    ├── methods_detailed.md           # Comprehensive methodology
-    └── analysis_protocols.md         # Statistical analysis protocols
-```
+## Current status
 
-## Key Features
-- **Multi-scale Analysis**: 350+ neurons across behavioral, network, synaptic, molecular scales
-- **Real Data Parameters**: Based on Holtmaat & Svoboda (2009), Allen Observatory, IBL datasets
-- **Statistical Validation**: Bootstrap analysis with FDR correction
-- **Reproducible Results**: Strong correlation r=0.582, p<0.001
+The public tree is deliberately limited to synthetic code, documentation, and static boundary checks. Current documentation and source comments supersede older framing that may remain in the preserved Git history.
 
-## Installation and Usage
+## Contents
 
-### Requirements
-```bash
-pip install -r requirements.txt
-```
+| Path | Purpose |
+| --- | --- |
+| `src/synthetic_model.py` | Standard-library synthetic model utilities. |
+| `tests/test_public_boundary.py` | Data-free test for the repository boundary scanner. |
+| `tools/check_public_boundary.py` | Checks tracked paths and text for public-boundary violations. |
+| `docs/STATUS_AND_PLAN.md` | Current status and maintenance plan. |
+| `docs/METHODS_SCOPE.md` | Scope and limitations of the synthetic model. |
+| `docs/RELEASE_BOUNDARY.md` | Allowed and excluded material in this public tree. |
+| `docs/DEFERRED_AND_DROPPED_DIRECTIONS.md` | Work intentionally kept outside this repository. |
 
-### Main Analysis Pipeline
+## Getting started
+
+The retained model uses only the Python standard library.
+
 ```python
-# Run complete multi-scale analysis
-python src/enhanced_real_analysis.py
+from src import SyntheticPlasticityModel
 
-# Generate publication figures
-python src/figure_generation.py
-
-# Perform statistical validation
-python src/statistical_validation.py
+model = SyntheticPlasticityModel(seed=7)
+observations = model.generate_observations(count=12)
+summary = model.summarize_association(observations)
 ```
 
-## Data Sources
-1. **Allen Observatory**: Cell type-specific parameters
-2. **International Brain Laboratory**: Behavioral datasets
-3. **Holtmaat & Svoboda (2009)**: Spine plasticity measurements
-4. **Published Literature**: 60+ experimental studies
+The generated values are illustrative synthetic values, not measurements or evidence about a biological system.
 
-## Key Results
-- Error sensitivity correlates with plasticity magnitude (r=0.582, p<0.001)
-- Framework explains 34% of plasticity variance across scales
-- Clinical applications in autism, schizophrenia, Alzheimer's disease
-- AI relevance for continual learning algorithms
+## Validation
 
-## Citation
-If you use this code, please cite:
-```
-[Author], [Year]. Error-Driven Plasticity: A Unified Framework for Learning 
-and Adaptation in Neural Circuits. Nature Neuroscience. [DOI when published]
+```bash
+python tools/check_public_boundary.py
+python -m unittest discover -s tests -v
 ```
 
-## License
-MIT License - see LICENSE file for details
+Both commands inspect code and tracked repository content only; neither downloads material nor reads a local data directory.
 
-## Contact
-Repository: https://github.com/hwilner/error-driven-plasticity-paper2
-Author: hwilner@institution.edu
+## Keywords
 
-## Reproducibility Statement
-All analysis code is provided to ensure full reproducibility of results reported in the manuscript. The code follows Nature Neuroscience guidelines for computational reproducibility.
+**synthetic modeling**, **error-driven learning**, **plasticity**, **independent research**, **data-free software**, **repository boundaries**
 
-## Version History
-- v1.0: Initial analysis framework
-- v1.1: Enhanced multi-scale validation
-- v1.2: Publication-ready version with complete statistical validation
+## Contributing
 
----
-**Generated for Nature Neuroscience submission**
-**Date**: November 2024
+Contributions are welcome. Please keep proposed changes data-free, avoid adding external material or generated outputs, and include a focused test when behavior changes. See [Contributing](CONTRIBUTING.md) and the [release boundary](docs/RELEASE_BOUNDARY.md).
+
+## Public documentation
+
+- [Status and plan](docs/STATUS_AND_PLAN.md)
+- [Methods scope](docs/METHODS_SCOPE.md)
+- [Deferred and dropped directions](docs/DEFERRED_AND_DROPPED_DIRECTIONS.md)
+- [Release boundary](docs/RELEASE_BOUNDARY.md)

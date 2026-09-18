@@ -1,81 +1,129 @@
-# Error-Driven Plasticity Framework - Git Ignore File
+# Public-boundary exclusions: data and derived material
+/data/
+/datasets/
+/results/
+/outputs/
+/derived/
+/raw/
+/figures/
+/figure_specs/
+/figure_specifications/
+/plots/
+/artifacts/
+/reports/
+/downloads/
+/external/
+/sources/
+/source_material/
+/metadata/
+/provenance/
+/archives/
+/archive/
+/archive_index/
+/notebooks/
+/cache/
 
-# Python
+# Common data, model, provenance, and serialized-output formats
+*.csv
+*.tsv
+*.tab
+*.json
+*.jsonl
+*.xml
+*.rdf
+*.ris
+*.nbib
+*.bib
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.hdf
+*.mat
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.sqlite
+*.db
+*.dta
+*.sav
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
+
+# Internal archive indexes
+*archive*index*
+*ARCHIVE*INDEX*
+
+# Figure and document assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.tif
+*.tiff
+*.pdf
+*.eps
+*.fig
+*.ai
+*.mp4
+*.mov
+*.webm
+
+# Notebook and interactive-session artifacts
+*.ipynb
+.ipynb_checkpoints/
+
+# Access records and runtime output
+*.log
+/logs/
+/access_logs/
+*.out
+*.err
+
+# Python caches, environments, and build products
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
 .Python
+.venv/
+venv/
+env/
+ENV/
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
+.eggs/
 *.egg
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Environment variables
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDE
+# Editor and operating-system files
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# OS
+*~
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Data files (large datasets)
-data/raw_datasets/
-*.h5
-*.hdf5
-*.mat
-*.npy
-results/large_outputs/
-
 # Temporary files
-temp/
-tmp/
+/tmp/
+/temp/
 *.tmp
 *.bak
-
-# Log files
-*.log
-logs/
-
-# Documentation builds
-docs/_build/
-docs/build/
-
-# Docker
-.dockerignore
-Dockerfile
-
-# Specific to this project
-allen_cache/
-ibl_cache/
-simulation_outputs/large/
