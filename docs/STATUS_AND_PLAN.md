@@ -1,26 +1,21 @@
-# Status and Plan
+# Research Status and Plan
 
-## Current status
+## Answer to the current research question
 
-This is an **independent-research** repository with a deliberately narrow public scope. The retained implementation is a data-free synthetic model, accompanied by documentation and static checks for the public boundary. It is not a record of empirical work and does not assert observed outcomes.
+The repository does not test whether error-driven plasticity occurs in an observed biological system. It provides a deterministic synthetic model that illustrates a programmed relationship between generated values.
 
-This status note supersedes older working-tree descriptions and source comments that made broader or unsupported statements. Those earlier revisions remain visible only through preserved Git history; they do not describe the current public tree.
+## Completed work
 
-## What is retained
+The implementation generates seed-controlled error-like and response-like values in memory, summarizes their linear association, and rejects underspecified or non-varying input to the summary helper. Tests cover repeatable synthetic generation, invalid summary inputs, and boundary-scanner behavior.
 
-| Area | Current role |
-| --- | --- |
-| Synthetic model | Provides illustrative generated values for software-level exploration. |
-| Documentation | Defines scope, limitations, contribution expectations, and exclusions. |
-| Boundary checks | Review tracked paths and text without opening local data locations. |
-| Tests | Exercise the boundary check using only tracked repository content. |
+## Successful and failed work
 
-## Near-term plan
+The successful work is software-level: the synthetic generator and summary behave as specified, and the boundary scanner detects the documented classes of prohibited paths. No empirical analysis has been run, so there is no observed positive, negative, or null plasticity result. The association in generated values is constructed by the model and must not be interpreted as empirical support.
 
-Maintenance should prioritize accurate scope statements, small and readable synthetic utilities, and conservative boundary checks. Any proposal that expands the public tree should first be assessed against the release boundary and should remain free of empirical material.
+## What remains unimplemented
 
-## Interpretation note
+The repository has no data ingestion, source-specific adapter, empirical evaluation, benchmark, provenance layer, result-reporting workflow, or figure-generation workflow. Those elements are required before an empirical plasticity claim can be assessed.
 
-The model may be useful for discussing code structure or conceptual relationships. It should not be interpreted as evidence, validation, a substitute for study design, or a basis for claims beyond the documented synthetic scope.
+## Next research decision
 
-See [Methods scope](METHODS_SCOPE.md), [Deferred and dropped directions](DEFERRED_AND_DROPPED_DIRECTIONS.md), and the [release boundary](RELEASE_BOUNDARY.md).
+A future empirical extension should predefine the data source, inclusion criteria, error and response measures, evaluation rule, statistical analysis, and interpretation boundary before accessing results. Public contributions are welcome for synthetic model quality, deterministic testing, documentation, and design of that evaluation plan.
