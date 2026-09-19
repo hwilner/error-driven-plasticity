@@ -38,6 +38,12 @@ class PublicBoundaryTest(unittest.TestCase):
 
         self.assertEqual(findings, ["blocked tracked path: results/example.txt"])
 
+    def test_boundary_rules_flag_a_blocked_suffix(self) -> None:
+        """Confirm a prohibited suffix is rejected without creating the path."""
+        findings = violations(ROOT, [Path("docs/example.csv")])
+
+        self.assertEqual(findings, ["blocked tracked path: docs/example.csv"])
+
     def test_boundary_rules_allow_a_documentation_path(self) -> None:
         """Confirm an allowed path without forbidden text produces no finding."""
         findings = violations(ROOT, [Path("README.md")])
