@@ -9,6 +9,23 @@ Contributions are welcome to this independent-research repository. Proposed chan
 - Strengthen the tracked-content boundary scanner.
 - Simplify standard-library code while preserving documented behavior.
 
+## Future Testing Opportunities
+
+### Data-free software or documentation tests available now
+
+- Create a documentation-only reproducibility walkthrough that explains how the existing seed-controlled model can be checked for repeatable in-memory behavior, without adding generated outputs, runtime code, or test-suite changes.
+- Perform a cross-document consistency review of the README and scope documents to confirm that they distinguish a constructed association from an observed finding and use the same limitation language.
+- Review the public descriptions of error-like and response-like values for plain-language clarity, and propose documentation edits that make their synthetic status clear to readers outside the field.
+- Draft boundary-safe acceptance criteria in documentation for the already described limited-input and no-variation safeguards, without changing code, the test suite, or the scanner.
+
+### Research-facing tests requiring approval and an appropriate data boundary
+
+- Propose a prospective plan to ask whether independently measured error-like and response-like quantities are associated in a clearly defined setting, with measures and inclusion rules set before results are accessed.
+- Propose a prospective comparison plan that states which alternative explanations or comparison conditions would be considered before any observed material is reviewed.
+- Propose a prospective repeatability plan that defines in advance how support, non-support, and inconclusive outcomes would be handled under an approved data boundary.
+
+Research-facing proposals must remain plans only in this public repository. A maintainer must approve the question, data boundary, safeguards, and a separate appropriate location before any research material, data-dependent evaluation, or derived output is considered.
+
 ## Scope guardrails
 
 Do not add data files, derived outputs, figures or figure specifications, notebooks, archives, downloaded material, source metadata, access logs, or tests that write to repository data or output locations. Do not add assertions about observed outcomes, named external resources, personal details, formal reference identifiers, or publication-oriented language.
