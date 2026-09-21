@@ -96,6 +96,10 @@ Concrete rules for this repo:
 
 **Claim discipline.** The strongest sentence this repository may ever support is "the synthetic software behaves as documented." Constructed associations are not observed effects; safeguards are not validations; plans for empirical work (issue #17) are gated and live outside this tree until approved.
 
+## Making your first change
+
+A good first contribution is small, testable, and data-free. Pick an open issue labeled `good first issue` (for example #8 through #14), read the file it names, and keep your edit inside that file's current section or class. Write the test or wording first if the issue gives acceptance criteria — the criteria are the definition of done. Then run the two validation commands locally and paste their results into your proposal. If either check fails, fix the cause rather than the check: the boundary scanner and the test suite encode the project's promises, so weakening either one to make a change pass is never acceptable. When in doubt about scope, prefer the change that deletes ambiguity over the one that adds machinery.
+
 ## Where to go next
 
 - Behavior contracts: `src/synthetic_model.py` docstrings
