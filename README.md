@@ -54,6 +54,8 @@ Contributions are welcome. Useful work includes transparent synthetic-model desi
 ## Documentation
 
 - [Introduction for new readers](docs/INTRODUCTION.md)
+- [Extended introduction for readers with no neuroscience background](docs/EXTENDED_INTRODUCTION.md)
+- [Methods for new contributors](docs/METHODS.md)
 - [Current results and discussion](docs/CURRENT_RESULTS_AND_DISCUSSION.md)
 - [Research status and plan](docs/STATUS_AND_PLAN.md)
 - [Methods scope](docs/METHODS_SCOPE.md)
