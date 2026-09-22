@@ -66,9 +66,8 @@ BLOCKED_PATH = re.compile(
 BLOCKED_TEXT = {
     "contact pattern": re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
     "reserved identifier pattern": re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE),
-    "target-publication language": re.compile(
-        r"\b(?:target\s+(?:journal|venue)|manuscript|submission|"
-        r"publication[- ]ready|ready\s+for\s+publication)\b",
+    "unsupported scope language": re.compile(
+        r"\b(?:target\s+venue|ready\s+for\s+(?:external\s+)?review)\b",
         re.IGNORECASE,
     ),
     "numeric outcome claim": re.compile(r"\b[pr]\s*(?:=|<|>)\s*-?\d"),

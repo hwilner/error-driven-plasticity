@@ -28,7 +28,7 @@ Research-facing proposals must remain plans only in this public repository. A ma
 
 ## Scope guardrails
 
-Do not add data files, derived outputs, figures or figure specifications, notebooks, archives, downloaded material, source metadata, access logs, or tests that write to repository data or output locations. Do not add assertions about observed outcomes, named external resources, personal details, formal reference identifiers, or publication-oriented language.
+Do not add data files, derived outputs, figures or figure specifications, notebooks, archives, downloaded material, source metadata, access logs, or tests that write to repository data or output locations. Do not add assertions about observed outcomes, named external resources, personal details, formal reference identifiers, or claims beyond the documented repository scope.
 
 ## Development process
 

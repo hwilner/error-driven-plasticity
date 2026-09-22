@@ -15,7 +15,7 @@ This public tree is limited to independent-research documentation, data-free syn
 
 ## Excluded tracked content
 
-The public tree must not contain raw or derived data, generated outputs, figures or figure specifications, notebooks, archives, downloads, external-source material or metadata, access logs, or data-dependent tests. It must not contain personal details, formal reference identifiers, publication-oriented language, or claims about observed outcomes.
+The public tree must not contain raw or derived data, generated outputs, figures or figure specifications, notebooks, archives, downloads, external-source material or metadata, access logs, or data-dependent tests. It must not contain personal details, formal reference identifiers, claims beyond the documented scope, or claims about observed outcomes.
 
 ## Review procedure
 
