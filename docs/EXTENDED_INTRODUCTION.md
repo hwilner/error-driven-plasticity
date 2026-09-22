@@ -1,6 +1,8 @@
 # Extended Introduction: Synapses, Plasticity, and Error-Driven Learning — From Zero
 
-This guide assumes **no neuroscience background**. It builds every idea from an everyday analogy, then shows exactly how the small synthetic model in this repository works. Everything described here matches the actual code in `src/synthetic_model.py`.
+This guide assumes **no neuroscience background and no mathematical background**. It builds every idea from an everyday analogy, carries out each quantitative step as explicit hand-checkable arithmetic, and then shows exactly how the small synthetic model in this repository works. Everything described here matches the actual code in `src/synthetic_model.py`.
+
+**Concept figure.** The error-driven learning loop — compare prediction with outcome, use the mismatch to adjust the knobs — and the small synthetic slice of it that this repository actually implements are drawn in [concept_figure.md](concept_figure.md) as an embedded Mermaid diagram. (The release boundary does not allow image files in the tracked tree, so the figure lives as text.)
 
 ---
 
@@ -73,17 +75,17 @@ means and linear association]
 never written to data or figure files]
 ```
 
-## 5. The math this repository actually uses
+## 5. The math this repository actually uses — carried out by hand once
 
-Three small pieces of mathematics appear in `src/synthetic_model.py`. Each is explained in one plain sentence, with a friendly external link if you want depth.
+Three small pieces of mathematics appear in `src/synthetic_model.py`. Each is shown below as a finite procedure on a few numbers; friendly free resources are named (not linked) if you want depth.
 
-**1. A uniform random draw for the error signal.** Each synthetic observation's `error_signal` is drawn uniformly between -1.0 and 1.0, meaning every value in that range is equally likely — like a spinner that stops anywhere on a dial with no favorite positions. ([Khan Academy — random variables and probability distributions](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library))
+**1. A uniform random draw for the error signal.** Each synthetic observation's `error_signal` is drawn uniformly between -1.0 and 1.0, meaning every value in that range is equally likely — like a spinner that stops anywhere on a dial with no favorite positions. *(Learn: the Khan Academy unit on random variables and probability distributions.)*
 
-**2. A linear response plus noise for the plasticity index.** The code computes `plasticity_index = 0.4 * error_signal + noise`, where the noise is drawn from a bell-shaped (Gaussian) distribution centered at 0 with a typical spread of 0.25 — in words: the response follows the error with a fixed slope of 0.4, blurred by small random wobble. This is the same shape as the simplest linear model you may have seen as "y = m x + b with jitter." ([StatQuest — linear models and regression, clearly explained](https://www.youtube.com/@statquest))
+**2. A linear response plus noise for the plasticity index.** The code computes `plasticity_index = 0.4 * error_signal + noise`, where the noise is drawn from a bell-shaped (Gaussian) distribution centered at 0 with a typical spread of 0.25. In words: the response follows the error with a fixed slope, blurred by small random wobble. **Worked example, one synapse, one update:** suppose the draw gives `error_signal = 0.5` and the wobble draw gives `noise = -0.1`. Then the response is `0.4 × 0.5 + (-0.1) = 0.2 - 0.1 = 0.1`. One multiplication and one addition — that is a complete "plasticity event" in this model, and a long synthetic sequence is just this line repeated. *(Learn: the StatQuest videos on linear models and regression.)*
 
-**3. The Pearson correlation coefficient for the summary.** The `summarize_association` helper reports `r = Σ(e − ē)(p − p̄) / √(Σ(e − ē)² · Σ(p − p̄)²)`, which in plain language measures how consistently two quantities move together on a scale from -1 (perfectly opposite) through 0 (no linear pattern) to +1 (perfectly aligned). Because the generator builds in a positive slope, a long synthetic sequence will produce an association above zero by construction — that is the programmed ground truth, not a discovery. ([Seeing Theory — correlation and regression, interactive](https://seeing-theory.brown.edu/); [3Blue1Brown — visual intuition for the mathematics behind it](https://www.youtube.com/@3blue1brown))
+**3. The Pearson correlation coefficient for the summary.** The `summarize_association` helper reports a number between -1 and +1 that measures how consistently two quantities move together: +1 means perfectly aligned, -1 perfectly opposite, 0 no straight-line pattern. The recipe is fully finite: subtract each quantity's own mean from every value (centering), multiply the paired centered values, add those products up, and divide by the square root of (sum of squared centered errors × sum of squared centered responses). **Worked example on three pairs.** Take errors (1, 0, -1) and responses (0.5, 0.1, -0.4). Error mean is 0, so centered errors are unchanged. Response mean is (0.5 + 0.1 − 0.4)/3 ≈ 0.067, so centered responses are about (0.433, 0.033, −0.467). Paired products: 1 × 0.433 = 0.433; 0 × 0.033 = 0; (−1) × (−0.467) = 0.467; total ≈ 0.9. Sum of squared centered errors is 1 + 0 + 1 = 2; squared centered responses total ≈ 0.407; the divisor is √(2 × 0.407) ≈ 0.902. The association is ≈ 0.9 / 0.902 ≈ 0.998 — nearly perfect alignment, which is expected: the generator builds in a positive slope, so a long synthetic sequence produces an association above zero **by construction**. That is programmed ground truth, not a discovery. *(Learn: the Seeing Theory interactive chapter on correlation and regression; the 3Blue1Brown channel for visual intuition.)*
 
-Two safeguards accompany the summary: it refuses fewer than two observations, and it refuses input where either quantity never varies (the formula would divide by zero, because variation in both fields is what makes "moving together" definable at all).
+Two safeguards accompany the summary: it refuses fewer than two observations, and it refuses input where either quantity never varies (the recipe would divide by zero, because variation in both fields is what makes "moving together" definable at all).
 
 ## 6. How the repository is organized
 
