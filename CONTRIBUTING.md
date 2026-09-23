@@ -9,6 +9,10 @@ Contributions are welcome to this independent-research repository. Proposed chan
 - Strengthen the tracked-content boundary scanner.
 - Simplify standard-library code while preserving documented behavior.
 
+## Project task workflow
+
+Each atomic task is tracked by a GitHub issue and its matching Project card. When a pull request fully addresses one of those tasks, include `Fixes #<issue-number>`, `Closes #<issue-number>`, or `Resolves #<issue-number>` in the pull-request description. Use a closing keyword only for work that is genuinely complete; use ordinary discussion or a non-closing reference for proposals and partial work. This link gives reviewers a visible relationship between the change and its task, and supports the documented Project-status automation when it is enabled.
+
 ## Future Testing Opportunities
 
 ### Data-free software or documentation tests available now
