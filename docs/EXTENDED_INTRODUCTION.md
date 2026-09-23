@@ -231,6 +231,22 @@ release boundary .-> TL
 
 All scholarly references mentioned in the short introduction — on spike-timing-dependent plasticity in cultured and cortical neurons, rate and cooperativity effects, structural plasticity and modulatory time windows, reviews of plasticity rules, the back-propagation algorithm, reward prediction-error signals, three-factor and eligibility-based learning rules, the mapping problem between AI-style error propagation and brain circuitry, and the validation of numerical models — are listed with full details in the [References section of the introduction](INTRODUCTION.md). No new sources are introduced in this document.
 
+## Learn more (verified links)
+
+Every link below was fetched and verified at the time of writing.
+
+**Synapses and plasticity**
+- [Synaptic plasticity](https://en.wikipedia.org/wiki/Synaptic_plasticity) — surveys how connection strengths change with activity, the knob-turning biology behind sections 1 and 2.
+- [Spike-timing-dependent plasticity](https://en.wikipedia.org/wiki/Spike-timing-dependent_plasticity) — explains how firing order pushes a synapse's strength up or down, the timing experiments referenced in section 2.
+
+**Error-driven learning**
+- [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) — describes how artificial networks compute output error and nudge every weight to reduce it, the AI side of the error-driven loop in section 3.
+- [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) — formalizes "always step toward lower ground" on an error landscape, the downhill picture of the dart-throwing and guess-iteration examples.
+- [Reinforcement learning](https://en.wikipedia.org/wiki/Reinforcement_learning) — covers learning from rewards and prediction-error signals, the biological-style counterpart of error-driven learning discussed in section 3.
+
+**The correlation summary**
+- [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) — defines the −1 to +1 measure of co-movement that `summarize_association` reports, including the worked two-observation perfect-alignment case.
+
 ## Choosing your road
 
 If you think in tables of numbers, take **linear algebra as weight tables** — a network is a table and learning edits cells. If you think in step-by-step rules, take **discrete iterated maps** — training is "next guess = guess + step × error" repeated. If you think in pictures, take **geometry** — error is distance, learning is downhill, correlation is an angle. If you think in tallies, take **probability as frequencies** — a noise-averaged error and a correlation are both recounts. If you think in machines, take **automata** — a synapse is a slot plus an update rule, and a seeded generator is a scrambling machine. If you think in counting worlds, take **statistical mechanics** — randomness is multiplicity. If you think in incentives, take **game theory** — training ends where no knob wants to move. If you think in questions, take **information theory** — correlation is how many questions one quantity answers about another.
