@@ -6,6 +6,10 @@
 >
 > The background below explains why words such as *error*, *synapse*, and *plasticity* are useful in science. That background is not a result from this repository. The repository's bounded result is only that its seed-controlled program can represent and describe a programmed relationship between synthetic values.
 
+![Concept figure: a neuron's output is compared with a target; the error signal flows backward to adjust the synapse strengths](figures/01-concept-schematic.png)
+
+*Figure 1: A neuron's output is compared with a target; the error signal flows backward to adjust the synapse strengths. (Editable Mermaid source: [figures/concept_figure.md](figures/concept_figure.md).)*
+
 ## A concept ladder: from cells to a software example
 
 ### 1. Neurons communicate

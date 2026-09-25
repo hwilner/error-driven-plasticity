@@ -113,6 +113,9 @@ def violations(root: Path, paths: Iterable[Path]) -> list[str]:
     scanner_path = Path(__file__).resolve().relative_to(root)
     for relative_path in paths:
         portable_path = relative_path.as_posix()
+        if portable_path.startswith("docs/figures/"):
+            # Owner-approved exemption: generated illustrations in docs/figures/.
+            continue
         if BLOCKED_PATH.search(portable_path) or relative_path.suffix.lower() in BLOCKED_SUFFIXES:
             findings.append(f"blocked tracked path: {portable_path}")
             continue
