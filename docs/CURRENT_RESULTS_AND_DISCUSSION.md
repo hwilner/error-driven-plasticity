@@ -2,7 +2,7 @@
 
 ## Current Result
 
-The current result is a working synthetic conceptual model. It creates error-like and response-like values in memory using a controllable seed, then summarizes the association that the model has constructed between those values. The seed control makes the same synthetic sequence available again when the same settings are used. The summary also has documented safeguards for inputs that are too limited or do not vary.
+The current result is a working synthetic conceptual model. It creates error-like and response-like values in memory using a controllable seed, then summarizes the association that the model has constructed between those values. The summary returns means and a linear association coefficient for the supplied synthetic values; that association follows from the model's programmed construction, since the implementation generates each response-like value from its paired error-like value. The seed control makes the same synthetic sequence available again when the same settings are used. The summary also has documented safeguards for inputs that are too limited or do not vary.
 
 This is supportive evidence for a narrow software claim: the repository can represent a programmed relationship between illustrative variables and describe that relationship within the model. The generated values are not measurements. The association is a consequence of the model's design, rather than a finding from a real-world system.
 
