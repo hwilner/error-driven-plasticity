@@ -12,6 +12,8 @@ The model uses pseudorandom variation controlled by an optional seed. Its transf
 
 The model is appropriate for reading code, exercising deterministic generation, and testing documentation examples. It can also support discussion of how a synthetic relationship is represented in software.
 
+A short walkthrough lets a newcomer exercise the repeatability contract entirely in memory. Construct two `SyntheticPlasticityModel` instances with the same seed, call `generate_observations` on each with the same count, and compare the two returned observation sequences for equality. The repeatability condition is an equal seed together with equal call settings: under that condition both sequences agree element for element, because each instance owns its random-number generator and produces its sequence independently of process-wide randomness. The comparison involves only in-memory values; no generated sequence needs to be shown, saved, or loaded. This repeatability is a software property of the illustrative synthetic values, not an empirical finding, and it says nothing about any system outside the model.
+
 ## Limitations
 
 The implementation has no data-ingestion path, no provenance layer, no output-writing interface, and no figure-generation interface. It does not establish any biological, behavioral, clinical, or technical conclusion. Generated summaries describe only the values created during a particular synthetic run.
