@@ -20,7 +20,10 @@ Each atomic task is tracked by a GitHub issue and its matching Project card. Whe
 - Create a documentation-only reproducibility walkthrough that explains how the existing seed-controlled model can be checked for repeatable in-memory behavior, without adding generated outputs, runtime code, or test-suite changes.
 - Perform a cross-document consistency review of the README and scope documents to confirm that they distinguish a constructed association from an observed finding and use the same limitation language.
 - Review the public descriptions of error-like and response-like values for plain-language clarity, and propose documentation edits that make their synthetic status clear to readers outside the field.
-- Draft boundary-safe acceptance criteria in documentation for the already described limited-input and no-variation safeguards, without changing code, the test suite, or the scanner.
+- Contributor acceptance criteria for documenting the limited-input and no-variation software input safeguards of `src/synthetic_model.py:SyntheticPlasticityModel.summarize_association` — documentation-only work that must not change code, the test suite, or the scanner:
+  - State that supplying fewer than two observations is rejected with `ValueError` ("at least two observations are required"), and identify this as a software input safeguard.
+  - State that supplying observations with no variation in either summarized field is rejected with `ValueError` ("synthetic observations must vary in both fields"), and identify this as a software input safeguard.
+  - Describe both safeguards strictly as input checks on synthetic values; they are not evidence about observed plasticity.
 
 ### Research-facing tests requiring approval and an appropriate data boundary
 
