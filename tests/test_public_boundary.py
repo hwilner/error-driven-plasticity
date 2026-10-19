@@ -24,6 +24,22 @@ class PublicBoundaryTest(unittest.TestCase):
 
         self.assertEqual(first, second)
 
+    def test_generation_rejects_nonpositive_counts(self) -> None:
+        """Confirm generation rejects nonpositive counts per its documented contract.
+
+        The ``generate_observations`` docstring promises ``ValueError`` whenever
+        ``count`` is not positive, so the boundary value zero and one negative
+        value are exercised in memory with a seeded model.
+        """
+        model = SyntheticPlasticityModel(seed=3)
+
+        # Zero is the contract boundary and -1 stands in for the negative range;
+        # both must raise before any observation is constructed.
+        for invalid_count in (0, -1):
+            with self.subTest(count=invalid_count):
+                with self.assertRaises(ValueError):
+                    model.generate_observations(count=invalid_count)
+
     def test_summary_requires_multiple_observations(self) -> None:
         """Confirm association summaries reject underspecified synthetic input."""
         model = SyntheticPlasticityModel(seed=3)
