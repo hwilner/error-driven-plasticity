@@ -17,10 +17,17 @@ from typing import Sequence
 class SyntheticObservation:
     """Store one generated observation from the synthetic model.
 
+    Both numeric fields hold generated illustrative values for software
+    exploration. Neither field is a measurement or an observed outcome, and
+    neither carries empirical meaning; this matches the retained-model scope
+    in ``docs/METHODS_SCOPE.md``.
+
     Attributes:
         identifier: Stable position assigned within one generated sequence.
-        error_signal: Generated input-like value with no empirical meaning.
-        plasticity_index: Generated response-like value with no empirical meaning.
+        error_signal: Generated error-like signal; an illustrative value,
+            not a measurement.
+        plasticity_index: Generated response-like value; an illustrative
+            value, not a measurement.
     """
 
     identifier: int
