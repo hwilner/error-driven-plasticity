@@ -65,13 +65,49 @@ BLOCKED_PATH = re.compile(
 )
 BLOCKED_TEXT = {
     "contact pattern": re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
-    "reserved identifier pattern": re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE),
+    # Requires the dotted-quad form of an RFC 1918 block (10.x.x.x/n). The previous
+    # pattern accepted ``10.<digits>/`` and so matched DOI suffixes such as
+    # ``10.1038/nrn2699`` while matching no actual reserved range at all.
+    "reserved identifier pattern": re.compile(r"\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,2}\b"),
     "unsupported scope language": re.compile(
         r"\b(?:target\s+venue|ready\s+for\s+(?:external\s+)?review)\b",
         re.IGNORECASE,
     ),
-    "numeric outcome claim": re.compile(r"\b[pr]\s*(?:=|<|>)\s*-?\d"),
+    # Case-insensitive so that an uppercase spelling (for example ``P < 0.05``)
+    # is not silently accepted. The reported value must be a decimal ending at a
+    # word boundary: ``p < 0.05`` is a statistic, while a number glued to an
+    # operand (``p = 0.4e``) is part of an equation rather than a claim.
+    "numeric outcome claim": re.compile(r"\b[pr]\s*(?:=|<|>)\s*-?\d+\.\d+\b", re.IGNORECASE),
 }
+
+# Rules applied to prose only, with rendered mathematics removed first. A displayed
+# equation is a definition, not a claim about an observed outcome: the model equation
+# ``p = 0.4 e + epsilon`` and the correlation formula both match the numeric pattern
+# above by design. Every other configured rule is still applied to the complete text.
+PROSE_ONLY_RULES = frozenset({"numeric outcome claim"})
+
+FENCED_MATH = re.compile(r"^```math[^\n]*\n.*?^```", re.DOTALL | re.MULTILINE)
+INLINE_MATH = re.compile(r"\$`[^`\n]*`\$")
+
+
+def strip_rendered_math(text: str) -> str:
+    """Return ``text`` with rendered mathematics replaced by spaces.
+
+    Blanks out GitHub-style ``$`inline`$`` spans and fenced ```` ```math ```` blocks so
+    that prose rules are evaluated against prose alone. Newlines inside a fenced block
+    are preserved so line-oriented findings keep pointing at the right line.
+
+    Args:
+        text: Full text of one candidate file.
+
+    Returns:
+        The same text with rendered math spans replaced by spaces.
+    """
+
+    def blank(match: re.Match[str]) -> str:
+        return re.sub(r"[^\n]", " ", match.group(0))
+
+    return INLINE_MATH.sub(blank, FENCED_MATH.sub(blank, text))
 
 
 def tracked_paths(root: Path) -> list[Path]:
@@ -126,15 +162,15 @@ def violations(root: Path, paths: Iterable[Path]) -> list[str]:
             continue
         if candidate.name not in TEXT_FILENAMES and candidate.suffix.lower() not in TEXT_SUFFIXES:
             continue
-        if relative_path == Path("docs/INTRODUCTION.md"):
-            continue
         # The scanner contains its own forbidden-pattern definitions.
         if relative_path == scanner_path:
             continue
 
         text = candidate.read_text(encoding="utf-8", errors="replace")
+        prose = strip_rendered_math(text)
         for label, pattern in BLOCKED_TEXT.items():
-            if pattern.search(text):
+            haystack = prose if label in PROSE_ONLY_RULES else text
+            if pattern.search(haystack):
                 findings.append(f"{portable_path}: {label}")
     return findings
 
